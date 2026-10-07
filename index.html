@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pairify</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand" role="button" tabindex="0" data-link="#/home" aria-label="Pairify Home">
+      <div class="logo">P</div>
+      <div class="brand-text">
+        <div class="brand-name">Pairify</div>
+        <div class="brand-tag">Connect • Plan • Pair</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#/activity" class="nav-link" data-link="#/activity">Activity</a>
+      <a href="#/server" class="nav-link" data-link="#/server">Server</a>
+      <a href="#/friends" class="nav-link" data-link="#/friends">Friends</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="btn btn-ghost" href="#/login" data-link="#/login">Login</a>
+      <a class="btn btn-primary" href="#/activity" data-link="#/activity">Get Started</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- HOME -->
+    <section class="view" data-view="home">
+      <div class="hero">
+        <div class="hero-left">
+          <h1>Pairify — a simple hub for pairing people with activities.</h1>
+          <p class="lead">
+            This homepage is UI + routing hooks only. It provides navigation stubs for
+            Activity, Server, Login, and Friend System. No backend logic included.
+          </p>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" data-action="go" data-to="#/activity">Open Activity</button>
+            <button class="btn btn-ghost" data-action="go" data-to="#/friends">Friend System</button>
+            <button class="btn" data-action="go" data-to="#/server">Server</button>
+          </div>
+
+          <div class="quick-cards">
+            <article class="card">
+              <div class="card-title">Activity</div>
+              <div class="card-desc">Browse / create activities (placeholder)</div>
+              <button class="btn btn-sm" data-action="go" data-to="#/activity">Open</button>
+            </article>
+
+            <article class="card">
+              <div class="card-title">Server</div>
+              <div class="card-desc">Status / endpoints (placeholder)</div>
+              <button class="btn btn-sm" data-action="go" data-to="#/server">Open</button>
+            </article>
+
+            <article class="card">
+              <div class="card-title">Friends</div>
+              <div class="card-desc">Friend list / invites (placeholder)</div>
+              <button class="btn btn-sm" data-action="go" data-to="#/friends">Open</button>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="mock">
+            <div class="mock-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <div class="mock-title">Pairify UI Preview</div>
+            </div>
+            <div class="mock-body">
+              <div class="pill">Hash navigation</div>
+              <div class="pill">Event listeners</div>
+              <div class="pill">Activity module hook</div>
+              <div class="pill">Server module hook</div>
+              <div class="pill">Friends module hook</div>
+              <div class="pill">Login UI only</div>
+              <div class="mock-note">
+                Replace each section with your real module later.
+              </div>
+            </div>
+          </div>
+
+          <div class="statusbar">
+            <div class="status-item">
+              <div class="status-label">Route</div>
+              <div class="status-value" id="routeText">#/home</div>
+            </div>
+            <div class="status-item">
+              <div class="status-label">Login</div>
+              <div class="status-value" id="loginState">Guest (UI only)</div>
+            </div>
+            <div class="status-item">
+              <div class="status-label">Server</div>
+              <div class="status-value" id="serverState">Not connected</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITY (stub) -->
+    <section class="view" data-view="activity" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Activity</h2>
+          <p class="sub">Placeholder section. Connect your Activity module here.</p>
+        </div>
+
+        <div class="panel-grid">
+          <div class="box">
+            <h3>Browse Activities</h3>
+            <p>List / filters / details (UI stub)</p>
+            <button class="btn btn-sm" data-action="noop">Stub action</button>
+          </div>
+          <div class="box">
+            <h3>Create Activity</h3>
+            <p>Form / submit (UI stub)</p>
+            <button class="btn btn-sm" data-action="noop">Stub action</button>
+          </div>
+          <div class="box">
+            <h3>Pair / Join</h3>
+            <p>Pairing flow placeholder</p>
+            <button class="btn btn-sm" data-action="noop">Stub action</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVER (stub) -->
+    <section class="view" data-view="server" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Server</h2>
+          <p class="sub">Placeholder section. Connect server status, health checks, endpoints, etc.</p>
+        </div>
+
+        <div class="panel-grid">
+          <div class="box">
+            <h3>Server Status</h3>
+            <p>Online/offline, latency, version (UI stub)</p>
+            <button class="btn btn-sm" data-action="setServer" data-value="Connected (mock)">Mock Connect</button>
+          </div>
+          <div class="box">
+            <h3>Endpoints</h3>
+            <p>Show your API routes here (UI stub)</p>
+            <button class="btn btn-sm" data-action="noop">Stub action</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRIENDS (stub) -->
+    <section class="view" data-view="friends" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Friend System</h2>
+          <p class="sub">Placeholder section. Add friend list / invites / search here.</p>
+        </div>
+
+        <div class="panel-grid">
+          <div class="box">
+            <h3>Friend List</h3>
+            <p>Display friends and statuses (UI stub)</p>
+            <button class="btn btn-sm" data-action="noop">Stub action</button>
+          </div>
+          <div class="box">
+            <h3>Add Friend</h3>
+            <p>Enter username / friend code (UI stub)</p>
+            <div class="row">
+              <input class="input" placeholder="Username / friend code" />
+              <button class="btn btn-sm" data-action="noop">Send</button>
+            </div>
+          </div>
+          <div class="box">
+            <h3>Invites</h3>
+            <p>Pending invites (UI stub)</p>
+            <button class="btn btn-sm" data-action="noop">Stub action</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGIN (UI only, NO hash/auth logic) -->
+    <section class="view" data-view="login" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Login</h2>
+          <p class="sub">UI only. No hashing/auth logic implemented.</p>
+        </div>
+
+        <div class="auth-grid">
+          <div class="box">
+            <h3>Login</h3>
+            <label class="label">Email</label>
+            <input class="input" type="email" placeholder="you@example.com" />
+            <label class="label">Password</label>
+            <input class="input" type="password" placeholder="••••••••" />
+            <button class="btn btn-primary" data-action="noop">Login (stub)</button>
+          </div>
+
+          <div class="box">
+            <h3>Register</h3>
+            <label class="label">Username</label>
+            <input class="input" type="text" placeholder="yourname" />
+            <label class="label">Password</label>
+            <input class="input" type="password" placeholder="••••••••" />
+            <button class="btn" data-action="noop">Register (stub)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Pairify</div>
+      <div class="footer-links">
+        <a href="#/home" data-link="#/home">Home</a>
+        <a href="#/activity" data-link="#/activity">Activity</a>
+        <a href="#/server" data-link="#/server">Server</a>
+        <a href="#/friends" data-link="#/friends">Friends</a>
+        <a href="#/login" data-link="#/login">Login</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
